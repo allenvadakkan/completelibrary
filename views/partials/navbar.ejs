@@ -1,0 +1,30 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white py-3">
+  <a class="navbar-brand" href="/home"><b>bookly</b></a>
+  <div class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" style="border: none;"> 
+    <i class="ri-menu-3-fill"></i>
+  </div>
+  <div class="collapse navbar-collapse" id="main_nav">
+    <ul class="navbar-nav mx-2">
+      <% for(i=0;i<nav.length;i++) {%>
+        <li class="nav-item active py-1"> <a class="nav-link" href="<%= nav[i].link%>">
+            <%= nav[i].name%>
+          </a></li>
+        <%}%>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li <% if (page_title === 'addbook') { %>class="invisible py-1" <% } else { %>class="visible py-1" <% } %> >
+        <a class="btn btn-outline-primary mx-2" href="/home/addbook">Add New Book</a>
+      </li>
+      <li class="nav-item dropdown py-1">
+        <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item py-2" href="/users/logout" >Logout</a>
+          <form  method="POST" action="/users/delete/<%= id%>?_method=DELETE">
+            <button class="btn btn-link dropdown-item text-danger py-2">Delete Profile</a>
+          </form>
+      </li>
+    </ul>
+  </div> 
+</nav>

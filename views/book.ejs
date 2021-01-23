@@ -1,0 +1,63 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+<%- include ("./partials/navbar"); %>
+
+    <nav class="breadcrumb mt-2 bg-white">
+        <a class="breadcrumb-item" href="/home">Home</a>
+        <a class="breadcrumb-item" href="/books">Books</a>
+        <span class="breadcrumb-item active">
+            <%=book.title.substring(20, 0)%> ...
+        </span>
+    </nav>
+    <%- include ("./partials/messages"); %>
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="align-middle mb-4">
+                    <h1 class="book_title">
+                        <%=book.title%>
+                    </h1>
+                    <p>
+                        By <a href="/authors/<%=book._id%>"><b style="color: #0275d8;"><%=book.author%></b></a> • <text class="text-muted"><%=book.published_year%></text>
+                    </p>
+                    <div class="row pt-3">
+                        <div class="col-lg-6 mb-2">
+                            <div class="text-muted">Genre: &ensp;<%=book.genre%></div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="text-muted">Page Count: &ensp;<%=book.pages%></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-2">
+                            <div class="text-muted">Publisher: &ensp;<%=book.publisher%></div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="text-muted">Language: &ensp;<%=book.language%></div>
+                        </div>
+                    </div>
+                </div>
+   
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center mb-4">
+                <img class="img-shadow" alt="<%= book.title %>" src="<%= book.bookCoverPath %>" class="img-fluid" style="height: 200px;width: auto;">
+            </div>
+        </div>
+            <div class="row">
+                <div class="col">
+                    <h4>About this edition</h4>
+                    <p class="py-1 text-muted">
+                        <%= book.book_description%>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form  method="POST" action="/books/delete/<%=book._id%>?_method=DELETE">
+                        <a href="/books/<%=book._id%>/edit" class="btn btn-outline-primary btn-sm mt-2">Edit Book <i class="ri-edit-fill"></i></a>
+                        <button type="submit" class="btn btn-danger mx-2 btn-sm mt-2">Delete <i class="ri-delete-bin-7-fill"></i></i></button>
+                    </form>
+                </div>
+            </div>
+    </div>

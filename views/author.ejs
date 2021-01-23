@@ -1,0 +1,24 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<%- include ("./partials/navbar"); %>
+
+<nav class="breadcrumb mt-2 bg-white">
+  <a class="breadcrumb-item" href="/home">Home</a>
+  <a class="breadcrumb-item" href="/authors">Authors</a>
+  <span class="breadcrumb-item active"><%=author.author%></span>
+</nav>
+
+<div class="container vertical">
+    <div class="row my-1">
+        <div class="col-lg-4 d-flex justify-content-center my-2">
+            <img src="<%= author.authorImagePath %>" class="img-fluid" style="height: 300px;width:auto" alt="<%=author.author%>">
+        </div>
+        <div class="col-lg-8 my-2">
+            <h1><%=author.author%></h1>
+
+            <div class="py-3">
+                <h4>About author</h4>
+                <p class="text-muted"><%= author.about_author%></p>    
+            </div>
+        </div>
+    </div>
+</div>

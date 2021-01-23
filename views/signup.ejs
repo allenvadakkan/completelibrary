@@ -1,0 +1,74 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<nav class="navbar navbar-expand-lg navbar-light bg-white mt-3">
+  <a class="navbar-brand" href="/"><b>bookly</b></a>
+</nav>
+<div class="row mt-3">
+  <div class="col-md-6 m-auto">
+    <h1 class="text-center mb-3 main-header">Join Today!</h1>
+    <div class="card card-body border-0">
+      <div class="small"><%- include ("./partials/messages"); %></div>
+      <form action="/users/signup" method="POST">
+        <div class="form-group">
+          <!--<label for="name">Name</label>-->
+          <input
+            type="name"
+            id="name"
+            name="name"
+            class="form-control"
+            placeholder="Enter Your Name"
+            value="<%= typeof name != 'undefined' ? name : '' %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <!-- <label for="email">Email</label> -->
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Your Email"
+            value="<%= typeof email != 'undefined' ? email : '' %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <!-- <label for="password">Password</label> -->
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control pwd"
+            placeholder="Create Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+            pattern=".{8,}"
+            title="Password must contain at least 8 or more characters..."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <!-- <label for="password2">Confirm Password</label> -->
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            pattern=".{8,}"
+            title="Password must contain at least 8 or more characters..."
+            required
+          />
+        </div>
+        <div class="pt-3">
+          <button type="submit" class="btn btn-primary btn-block py-2">
+            Create an Account
+          </button>
+        </div>
+      </form>
+      <p class="medium mt-4">
+        Already have an account? <a href="/users/login">Login</a>
+      </p>
+    </div>
+  </div>
+</div>

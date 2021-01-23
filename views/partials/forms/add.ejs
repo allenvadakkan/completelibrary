@@ -1,0 +1,134 @@
+<form
+  class="contact-form form-validate mt-5"
+  method="POST"
+  action="/home/addbook"
+>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-sm-6 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="title">Book Title</label>
+            <input type="text" class="form-control" id="title" name="title"/>
+          </div>
+        </div>
+
+        <div class="col-sm-6 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="author">Book Author</label>
+            <input type="text" class="form-control" id="author" name="author" />
+          </div>
+        </div>
+
+        <div class="col-sm-6 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="genre">Genres</label>
+            <input type="text" class="form-control" id="genre" name="genre" placeholder="Fiction, Fantasy" />
+          </div>
+        </div>
+
+        <div class="col-sm-6 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="language">Language</label>
+            <input
+              type="text"
+              class="form-control"
+              id="language"
+              name="language"
+              placeholder="English"
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-4 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="publisher">Publisher</label>
+            <input
+              type="text"
+              class="form-control"
+              id="publisher"
+              name="publisher"
+              placeholder="DC Books"
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-4 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="published_year">Published</label>
+            <input
+              type="number"
+              class="form-control"
+              id="published_year"
+              name="published_year"
+              placeholder="E.g., 2007"
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-4 mb-2">
+          <div class="form-group">
+            <label class="form-label required" for="pages">Page Count</label>
+            <input type="number" class="form-control" id="pages" name="pages" placeholder="E.g., 250" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          
+          <div class="form-group">
+            <label class="form-label required" for="book_cover">Add Book Cover</label>
+            <input type="file" name="book_cover" class="filepond" />
+          </div>
+        </div>
+
+        <div class="col-sm-6 mb-3">
+          <div class="form-group">
+            <label class="form-label required" for="author_image">Add Author Image</label>
+            <input type="file" name="author_image" class="filepond" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-6 mb-3">
+      <div class="form-group">
+        <label class="form-label required" for="book_description">Add Book Description</label>
+        <textarea
+          class="form-control"
+          id="book_description"
+          name="book_description"
+          rows="5"
+          placeholder="Enter book description here (max 100 words)..."
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mb-3">
+      <div class="form-group">
+        <label class="form-label required" for="about_author">Add About Author</label>
+        <textarea
+          class="form-control"
+          id="about_author"
+          name="about_author"
+          rows="5"
+          placeholder="Enter author details here (max 100 words)..."
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-4">
+    <button type="submit" name="submit" class="btn btn-success px-4">
+      Add Book
+    </button>
+    <a type="button" href="/books" class="btn btn-outline-dark px-4 mx-2">
+      Cancel</a
+    >
+  </div>
+</form>

@@ -1,0 +1,63 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+
+<%- include ("./partials/navbar"); %>
+
+
+    <div class="py-5 container">
+        <h4 style="font-weight: 300;">Hey, <%= username %> &#128075;</h4>
+        <h2 style="font-weight: 500;">Browse our curated collection of books for to build background knowledge and
+            deepen learning!</h2>
+    </div>
+    <%- include ("./partials/messages"); %>
+        <div class="container">
+            <div class="py-3">
+                <div class="row">
+                    <% if(books.length==0){ %>
+                        <div class="container d-flex flex-column justify-content-center align-items-center h-25" style="width: 100%;">
+                            <img src="images/empty.png" height="200px" width="200px"><br>
+                            <h3 style="font-weight: 300;" class="text-muted py-4">No Books Found!</h3>
+                        </div>
+    
+                        <% } else { %>
+                            <%for(i=0;i<books.length;i++){%>
+                                <div class="col-md-6 col-lg-4 mb-2">                                
+                                    <div class="ibox">
+                                        <div class="ibox-content product-box">
+                                            <div class="product-imitation">
+                                                <img class="img-shadow" src="<%= books[i].bookCoverPath %>" width="auto" height="200"
+                                                    alt="<%= books[i].title%>">
+                                            </div>
+                                            <div class="product-desc">
+                                                <!-- <span class="product-price">
+                                                    $10
+                                                </span>-->
+                                                <small class="text-muted mb-2">
+                                                    <%= books[i].genre%>
+                                                </small>
+                                                <h2 class="product-name">
+                                                    <%= books[i].title%>
+                                                </h2>
+    
+                                                <div class="small m-t-xs">
+                                                    Book by <a href="/authors/<%=books[i]._id%>"><b style="color: rgb(0, 101, 189);">
+                                                        <%= books[i].author%>
+                                                    </b></a> • <%= books[i].published_year%>
+                                                </div>
+                                                <div class="small m-t-xs py-1">
+                                                    <%= books[i].pages%> Pages
+                                                </div>
+                                                <div class="m-t mt-2">
+                                                    <a href="/books/<%=books[i]._id%>"
+                                                        class="btn btn-sm btn-outline-primary">More Info <i
+                                                            class="fa fa-long-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                         <% } %>
+                </div>
+            </div>
+        </div>

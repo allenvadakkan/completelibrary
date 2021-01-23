@@ -1,0 +1,40 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+<%- include ("./partials/navbar"); %>
+
+    <div class="py-5 container">
+        <h4 style="font-weight: 300;">Hey, <%= username %> &#128075;</h4>
+        <h2 style="font-weight: 500;">Meet the authors!</h2>
+    </div>
+    <div class="container">
+        <div class="py-3">
+            <div class="row">
+                <% if(authors.length==0){ %>
+    
+                        <div class="container d-flex flex-column justify-content-center align-items-center h-25" style="width: 100%;">
+                            <img src="images/empty.png" height="200px" width="200px"><br>
+                            <h3 style="font-weight: 300;" class="text-muted py-4">No Authors Found!</h3>
+                        </div>
+                    
+                    <% } else { %>
+                    <%for(i=0;i<authors.length;i++){%>
+                        <div class="col-sm-12 col-md-4 col-lg-3">
+                            <div class="card-group">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class="img-fluid" style="height: 200px;width:auto;"
+                                                src="<%= authors[i].authorImagePath %>" alt="<%= authors[i].author%>"></p>
+                                        <h4 class="card-title">
+                                            <%= authors[i].author%>
+                                        </h4>
+                                        <!--<p class="card-text">Author of <b><%= authors[i].title%></b></p>-->
+                                        <a href="/authors/<%=authors[i]._id%>" class="btn btn-outline-primary">Know More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% } %>
+            </div>
+        </div>
+    </div>
